@@ -1,3 +1,4 @@
+Please note that this repo is a exact copy for the original repository by nomeida, and is released seperately to fix the release issues in the original npm.
 # Hyperliquid API SDK
 
 Typescript SDK to more easily interact with Hyperliquid's API
