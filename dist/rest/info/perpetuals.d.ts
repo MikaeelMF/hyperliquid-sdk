@@ -1,6 +1,6 @@
-import { Meta, MetaAndAssetCtxs, ClearinghouseState, UserFunding, UserNonFundingLedgerUpdates, FundingHistory } from '../../types';
-import { HttpApi } from '../../utils/helpers';
-import { SymbolConversion } from '../../utils/symbolConversion';
+import { Meta, MetaAndAssetCtxs, ClearinghouseState, UserFunding, UserNonFundingLedgerUpdates, FundingHistory } from "../../types";
+import { HttpApi } from "../../utils/helpers";
+import { SymbolConversion } from "../../utils/symbolConversion";
 export declare class PerpetualsInfoAPI {
     private httpApi;
     private symbolConversion;

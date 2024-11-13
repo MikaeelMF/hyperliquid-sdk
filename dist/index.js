@@ -41,7 +41,9 @@ class Hyperliquid {
     constructor(privateKey = null, testnet = false, walletAddress = null) {
         this.isValidPrivateKey = false;
         this.walletAddress = null;
-        const baseURL = testnet ? CONSTANTS.BASE_URLS.TESTNET : CONSTANTS.BASE_URLS.PRODUCTION;
+        const baseURL = testnet
+            ? CONSTANTS.BASE_URLS.TESTNET
+            : CONSTANTS.BASE_URLS.PRODUCTION;
         this.rateLimiter = new rateLimiter_1.RateLimiter();
         this.symbolConversion = new symbolConversion_1.SymbolConversion(baseURL, this.rateLimiter);
         this.info = new info_1.InfoAPI(baseURL, this.rateLimiter, this.symbolConversion);
@@ -59,15 +61,17 @@ class Hyperliquid {
         return new Proxy({}, {
             get: (target, prop) => {
                 if (!this.isValidPrivateKey) {
-                    throw new errors_1.AuthenticationError('Invalid or missing private key. This method requires authentication.');
+                    throw new errors_1.AuthenticationError("Invalid or missing private key. This method requires authentication.");
                 }
                 return target[prop];
-            }
+            },
         });
     }
     initializeWithPrivateKey(privateKey, testnet = false) {
         try {
-            const formattedPrivateKey = privateKey.startsWith('0x') ? privateKey : `0x${privateKey}`;
+            const formattedPrivateKey = privateKey.startsWith("0x")
+                ? privateKey
+                : `0x${privateKey}`;
             new ethers_1.ethers.Wallet(formattedPrivateKey); // Validate the private key
             this.exchange = new exchange_1.ExchangeAPI(testnet, formattedPrivateKey, this.info, this.rateLimiter, this.symbolConversion, this.walletAddress);
             this.custom = new custom_1.CustomOperations(this.exchange, this.info, formattedPrivateKey, this.symbolConversion, this.walletAddress);
@@ -94,4 +98,8 @@ class Hyperliquid {
 exports.Hyperliquid = Hyperliquid;
 __exportStar(require("./types"), exports);
 __exportStar(require("./utils/signing"), exports);
+const api = new Hyperliquid();
+api.info.perpetuals.getMetaAndAssetCtxs().then((metaAndCtxs) => {
+    console.log(metaAndCtxs.meta.universe);
+});
 //# sourceMappingURL=index.js.map

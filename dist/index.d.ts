@@ -1,8 +1,8 @@
-import { InfoAPI } from './rest/info';
-import { ExchangeAPI } from './rest/exchange';
-import { WebSocketClient } from './websocket/connection';
-import { WebSocketSubscriptions } from './websocket/subscriptions';
-import { CustomOperations } from './rest/custom';
+import { InfoAPI } from "./rest/info";
+import { ExchangeAPI } from "./rest/exchange";
+import { WebSocketClient } from "./websocket/connection";
+import { WebSocketSubscriptions } from "./websocket/subscriptions";
+import { CustomOperations } from "./rest/custom";
 export declare class Hyperliquid {
     info: InfoAPI;
     exchange: ExchangeAPI;
@@ -20,5 +20,5 @@ export declare class Hyperliquid {
     connect(): Promise<void>;
     disconnect(): void;
 }
-export * from './types';
-export * from './utils/signing';
+export * from "./types";
+export * from "./utils/signing";
