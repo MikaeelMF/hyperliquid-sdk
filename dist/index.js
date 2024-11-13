@@ -98,8 +98,4 @@ class Hyperliquid {
 exports.Hyperliquid = Hyperliquid;
 __exportStar(require("./types"), exports);
 __exportStar(require("./utils/signing"), exports);
-const api = new Hyperliquid();
-api.info.perpetuals.getMetaAndAssetCtxs().then((metaAndCtxs) => {
-    console.log(metaAndCtxs.meta.universe);
-});
 //# sourceMappingURL=index.js.map
